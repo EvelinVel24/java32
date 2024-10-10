@@ -9,6 +9,18 @@ public class Main {
         // Crear hospital
         Hospital hospital = new Hospital("Hospital Central", 123456789, 1, Arrays.asList(cardio, pediatria));
 
+        // Mostrar información del hospital
+        System.out.println("Nombre del hospital: " + hospital.nombre);
+        System.out.println("Teléfono del hospital: " + hospital.telefono);
+        System.out.println("ID del hospital: " + hospital.idHospital);
+
+        // Mostrar los departamentos del hospital
+        for (Departamento departamento : hospital.departamentos) {
+            System.out.println("Departamento: " + departamento.nombre);
+            departamento.mostrarCantidadMedicos();
+            departamento.mostrarCantidadPacientes();
+        }
+
         // Crear pacientes
         Paciente paciente1 = new Paciente("Juan Pérez", 1001, "estable");
         Paciente paciente2 = new Paciente("María López", 1002, "crítico");
@@ -20,13 +32,10 @@ public class Main {
         // Crear especialistas
         Especialidad especialista1 = new Especialidad("Dr. Rodríguez", 5003, true, "Cardiología");
 
-        // Mostrar información
-        cardio.mostrarCantidadMedicos();
-        pediatria.mostrarCantidadPacientes();
-
         // Atender pacientes
         medico1.atenderPaciente(paciente1);
         medico2.atenderPaciente(paciente2);
         especialista1.atenderPaciente(paciente2);
     }
 }
+
